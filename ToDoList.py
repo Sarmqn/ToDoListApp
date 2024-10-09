@@ -22,10 +22,10 @@ def add_task(tasks):
     task = input("Enter a new task: ")
     
     # Initialize the priority variable
-    priority = None
+    priority = None  
     # Check for valid priority
     while priority not in ['1', '2', '3']:
-        priority = input("Enter task priority (1 for high, 2 for medium, 3 for low): ")
+        priority = input("Enter task priority (1 for High, 2 for Medium, 3 for Low): ")
         
         # Validate priority input
         if priority not in ['1', '2', '3']:
@@ -34,20 +34,24 @@ def add_task(tasks):
     tasks.append({"task": task, "completed": False, "priority": priority})
     print(f"'{task}' has been added to your To-Do List with priority {priority}.")
 
-
 # Function that allows viewing of tasks
 def view_tasks(tasks):
     if not tasks:
         print("Your To-Do List is empty!")
     else:
         # Sort tasks by priority (1 is highest priority)
-        sorted_tasks = sorted(tasks, key=lambda x: x.get('priority', '4'))  # Default to '4' for sorting
+        sorted_tasks = sorted(tasks, key=lambda x: x.get('priority', '4'))
         
-        print("\n Your To-Do List:")
+        print("\nYour To-Do List:")
         for i, task in enumerate(sorted_tasks, 1):
             status = "✓" if task['completed'] else "X"
-            priority = task.get('priority', 'N/A')
-            print(f"{i}. {task['task']} [{status}] - Priority: {priority}")
+            # Convert priority number to descriptive text
+            priority_map = {'1': 'High', '2': 'Medium', '3': 'Low'}
+            priority_text = priority_map.get(task.get('priority', 'N/A'), 'N/A')
+            
+            # Display task with priority
+            print(f"{i}. {task['task']} [{status}] - Priority: {priority_text}")
+
 
 # Function that marks tasks as completed
 def mark_completed(tasks):
