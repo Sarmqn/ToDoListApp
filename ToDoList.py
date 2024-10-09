@@ -35,23 +35,21 @@ def add_task(tasks):
     print(f"'{task}' has been added to your To-Do List with priority {priority}.")
 
 # Function that allows viewing of tasks
+# Function that allows viewing of tasks with integrated sorting
 def view_tasks(tasks):
     if not tasks:
         print("Your To-Do List is empty!")
     else:
-        # Sort tasks by priority (1 is highest priority)
-        sorted_tasks = sorted(tasks, key=lambda x: x.get('priority', '4'))
+        # Sort tasks by priority before displaying
+        priority_order = {'1': 1, '2': 2, '3': 3}
+        sorted_tasks = sorted(tasks, key=lambda x: priority_order.get(x['priority'], 4))
         
         print("\nYour To-Do List:")
-        for i, task in enumerate(sorted_tasks, 1):
-            status = "✓" if task['completed'] else "X"
-            # Convert priority number to descriptive text
+        for i, task in enumerate(sorted_tasks, 1):  # No need for get_sorted_tasks
+            status = "✓" if task['completed'] else "✗"
             priority_map = {'1': 'High', '2': 'Medium', '3': 'Low'}
-            priority_text = priority_map.get(task.get('priority', 'N/A'), 'N/A')
-            
-            # Display task with priority
+            priority_text = priority_map.get(task['priority'], 'N/A')
             print(f"{i}. {task['task']} [{status}] - Priority: {priority_text}")
-
 
 # Function that marks tasks as completed
 def mark_completed(tasks):

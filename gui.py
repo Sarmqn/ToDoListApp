@@ -1,6 +1,7 @@
 # GUI for the To-Do List Applicaiton
 
-import tkinter as tk 
+# gui.py
+import tkinter as tk
 from tkinter import messagebox, simpledialog
 from ToDoList import save_tasks, load_tasks, add_task, mark_completed, delete_task, get_sorted_tasks
 
