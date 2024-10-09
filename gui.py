@@ -3,7 +3,7 @@
 # gui.py
 import tkinter as tk
 from tkinter import messagebox, simpledialog
-from ToDoList import save_tasks, load_tasks, add_task, mark_completed, delete_task, get_sorted_tasks
+from ToDoList import save_tasks, load_tasks, add_task, mark_completed, delete_task
 
 # Initialise the application window
 root = tk.Tk
