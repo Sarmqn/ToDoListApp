@@ -18,7 +18,7 @@ def load_tasks():
         return []
 
 # Function that adds tasks to the task list
-def add_task(tasks):
+def add_task(tasks, task, priority):
     task = input("Enter a new task: ")
     
     # Initialize the priority variable
@@ -31,7 +31,7 @@ def add_task(tasks):
         if priority not in ['1', '2', '3']:
             print("Invalid priority! Please enter 1, 2, or 3.")
     
-    tasks.append({"task": task, "completed": False, "priority": priority})
+    tasks.append({"task": task, "completed": False, "priority": int(priority)})
     print(f"'{task}' has been added to your To-Do List with priority {priority}.")
 
 # Function that allows viewing of tasks
