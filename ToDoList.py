@@ -19,19 +19,27 @@ def load_tasks():
 
 # Function that adds tasks to the task list
 def add_task(tasks):
-    task = input("Enter a new task: ")  # Changed variable name to avoid confusion
-    tasks.append({"task": task, "completed": False})
-    print(f"'{task}' has been added to your To-Do List.")
+    task = input("Enter a new task: ")
+    priorty = input("Enter the task priority! (1 for high, 2 for medium, 3 for low): ")
+    
+    while priority not in ['1', '2', '3']:
+        print("Invalid Priority! Please enter 1,2, or 3.")
+        priority = input("Enter task priority (1 for high, 2 for medium, 3 for low): ")
+    
+    tasks.append({"task": task, "completed": False, "Priority": priority})
+    print(f"'{task}' has been added to your To-Do List with priority {priority}.")
 
 # Function that allows viewing of tasks
 def view_tasks(tasks):
     if not tasks:
         print("Your To-Do List is empty!")
     else:
-        print("\nYour To-Do List:")
-        for i, task in enumerate(tasks, 1):
+        # Sort tasks by priority (1 is highest priority)
+        sorted_tasks = sorted(tasks, key=lambda x: x['priority'])
+        print("\n Your To-Do List:")
+        for i, task in enumerate(sorted_tasks, 1):
             status = "✓" if task['completed'] else "X"
-            print(f"{i}. {task['task']} [{status}]")
+            print(f"{i}. {task['task']} [{status}] - Priority: {task['priority']}")
 
 # Function that marks tasks as completed
 def mark_completed(tasks):
