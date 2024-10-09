@@ -93,7 +93,7 @@ task_label.pack(side = tk.LEFT)
 task_entry = tk.Entry(frame, width = 30, font = ("Helvetica", 14))
 task_entry.pack(side = tk.LEFT)
 
-add_task_button = tk.Button(frame, text = "Add Task", command = add_task_gui, bg = "#4CAF50", fg = "white", front = ("Helvetica", 14))
+add_task_button = tk.Button(frame, text = "Add Task", command = add_task_gui, bg = "#4CAF50", fg = "white", font = ("Helvetica", 14))
 add_task_button.pack(side = tk.LEFT)
 
 # Creating a listbox to display the tasks
