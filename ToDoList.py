@@ -6,9 +6,7 @@ def save_tasks(tasks):
         json.dump(tasks, file)
     print("Tasks have been saved to 'tasks.txt'.")
 
-# Function to load up tasks
-    
-# ToDoList Application
+# Function to load tasks from a file
 def load_tasks():
     try:
         with open('tasks.txt', 'r') as file:
@@ -17,20 +15,20 @@ def load_tasks():
         return tasks
     except FileNotFoundError:
         print("No saved tasks have been found.")
-        return[]
-    
+        return []
+
 # Function that adds tasks to the task list
 def add_task(tasks):
-    tasks = input("Enter a new task: ")
-    tasks.append({"task": tasks, "completed": False})
-    print(f"'{tasks}' has been added to your To-Do List.")
+    task = input("Enter a new task: ")  # Changed variable name to avoid confusion
+    tasks.append({"task": task, "completed": False})
+    print(f"'{task}' has been added to your To-Do List.")
 
 # Function that allows viewing of tasks
 def view_tasks(tasks):
     if not tasks:
         print("Your To-Do List is empty!")
     else:
-        print("\n Your To-Do List:")
+        print("\nYour To-Do List:")
         for i, task in enumerate(tasks, 1):
             status = "✓" if task['completed'] else "X"
             print(f"{i}. {task['task']} [{status}]")
@@ -43,11 +41,11 @@ def mark_completed(tasks):
         view_tasks(tasks)
         task_num = int(input("Enter the task number to mark as completed: "))
         if 1 <= task_num <= len(tasks):
-            tasks[task_num -1]['completed'] = True
+            tasks[task_num - 1]['completed'] = True
             print(f"Task {task_num} marked as completed.")
         else:
             print("Invalid task number.")
-    
+
 # Function that enables the removal of tasks
 def delete_task(tasks):
     if not tasks:
@@ -63,16 +61,16 @@ def delete_task(tasks):
 
 # Menu with options
 def show_menu():
-    print("\n To-Do- List Menu:")
+    print("\nTo-Do List Menu:")
     print("1. Add a task")
     print("2. View Tasks")
     print("3. Mark a task as completed")
     print("4. Delete a task")
     print("5. Save tasks")
     print("6. Load tasks")
-    print("7. Exist")
+    print("7. Exit")
 
-# Function that holds the To-Do List items
+# To-Do List Application
 def main():
     tasks = [] 
     
@@ -80,9 +78,9 @@ def main():
         show_menu()
         choice = input("Choose an option please: ")
         
-        if choice =='1':
+        if choice == '1':
             add_task(tasks)
-        elif choice =='2':
+        elif choice == '2':
             view_tasks(tasks)
         elif choice == '3':
             mark_completed(tasks)
@@ -97,6 +95,6 @@ def main():
             break
         else:
             print("Invalid Choice. Please Select Again.")
-            
+
 if __name__ == "__main__":
     main()
