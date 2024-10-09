@@ -62,8 +62,8 @@ if __name__ == "__main__":
 # Function that adds tasks to the task list
 def add_task(tasks):
     tasks = input("Enter a new task: ")
-    tasks.append({"task": task, "completed": False})
-    print(f"'{task}' has been added to your To-Do List.")
+    tasks.append({"task": tasks, "completed": False})
+    print(f"'{tasks}' has been added to your To-Do List.")
 
 # Function that allows viewing of tasks
 def view_tasks(tasks):
@@ -89,7 +89,7 @@ def mark_completed(tasks):
             print("Invalid task number.")
     
 # Function that enables the removal of tasks
-def delete_tasl(tasks):
+def delete_task(tasks):
     if not tasks:
         print("Your To-Do List is empty!")
     else:
