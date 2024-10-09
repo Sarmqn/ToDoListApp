@@ -39,11 +39,13 @@ def view_tasks(tasks):
         print("Your To-Do List is empty!")
     else:
         # Sort tasks by priority (1 is highest priority)
-        sorted_tasks = sorted(tasks, key=lambda x: x['priority'])
+        sorted_tasks = sorted(tasks, key=lambda x: x.get('priority', '4'))  # Default to '4' for sorting
+        
         print("\n Your To-Do List:")
         for i, task in enumerate(sorted_tasks, 1):
             status = "✓" if task['completed'] else "X"
-            print(f"{i}. {task['task']} [{status}] - Priority: {task['priority']}")
+            priority = task.get('priority', 'N/A')  # Default to 'N/A' if no priority is set
+            print(f"{i}. {task['task']} [{status}] - Priority: {priority}")
 
 # Function that marks tasks as completed
 def mark_completed(tasks):
@@ -73,7 +75,7 @@ def delete_task(tasks):
 
 # Menu with options
 def show_menu():
-    print("\nTo-Do List Menu:")
+    print("\n To-Do List Menu:")
     print("1. Add a task")
     print("2. View Tasks")
     print("3. Mark a task as completed")
