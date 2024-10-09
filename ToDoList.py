@@ -19,6 +19,10 @@ def load_tasks():
 
 # Function that adds tasks to the task list
 def add_task(tasks):
+    
+    #Initialise the variable
+    priority = None
+    
     task = input("Enter a new task: ")
     priorty = input("Enter the task priority! (1 for high, 2 for medium, 3 for low): ")
     
