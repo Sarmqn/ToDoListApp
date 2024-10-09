@@ -18,47 +18,7 @@ def load_tasks():
     except FileNotFoundError:
         print("No saved tasks have been found.")
         return[]
-
-# Menu with options
-def show_menu():
-    print("\n To-Do- List Menu:")
-    print("1. Add a task")
-    print("2. View Tasks")
-    print("3. Mark a task as completed")
-    print("4. Delete a task")
-    print("5. Save tasks")
-    print("6. Load tasks")
-    print("7. Exist")
-
-# Function that holds the To-Do List items
-def main():
-    tasks = [] 
     
-    while True:
-        show_menu()
-        choice = input("Choose an option please: ")
-        
-        if choice =='1':
-            add_task(tasks)
-        elif choice =='2':
-            view_tasks(tasks)
-        elif choice == '3':
-            mark_completed(tasks)
-        elif choice == '4':
-            delete_task(tasks)
-        elif choice == '5':
-            save_tasks(tasks)
-        elif choice == '6':
-            tasks = load_tasks()
-        elif choice == '7':
-            print("Exiting, Goodbye!")
-            break
-        else:
-            print("Invalid Choice. Please Select Again.")
-            
-if __name__ == "__main__":
-    main()
-
 # Function that adds tasks to the task list
 def add_task(tasks):
     tasks = input("Enter a new task: ")
@@ -100,3 +60,43 @@ def delete_task(tasks):
             print(f"Deleted task: {removed_task['task']}")
         else:
             print("Invalid task number!")
+
+# Menu with options
+def show_menu():
+    print("\n To-Do- List Menu:")
+    print("1. Add a task")
+    print("2. View Tasks")
+    print("3. Mark a task as completed")
+    print("4. Delete a task")
+    print("5. Save tasks")
+    print("6. Load tasks")
+    print("7. Exist")
+
+# Function that holds the To-Do List items
+def main():
+    tasks = [] 
+    
+    while True:
+        show_menu()
+        choice = input("Choose an option please: ")
+        
+        if choice =='1':
+            add_task(tasks)
+        elif choice =='2':
+            view_tasks(tasks)
+        elif choice == '3':
+            mark_completed(tasks)
+        elif choice == '4':
+            delete_task(tasks)
+        elif choice == '5':
+            save_tasks(tasks)
+        elif choice == '6':
+            tasks = load_tasks()
+        elif choice == '7':
+            print("Exiting, Goodbye!")
+            break
+        else:
+            print("Invalid Choice. Please Select Again.")
+            
+if __name__ == "__main__":
+    main()
