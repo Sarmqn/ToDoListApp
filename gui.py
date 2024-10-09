@@ -9,7 +9,7 @@ from ToDoList import save_tasks, load_tasks, add_task, mark_completed, delete_ta
 root = tk.Tk()
 root.title("To-Do List App")
 # Application Window Size
-root.geometry("1024 x 768")
+root.geometry("1024x768")
 # Default Light Mode
 root.config(bg="#f0f0f0")
 
