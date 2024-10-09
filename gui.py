@@ -97,7 +97,7 @@ add_task_button = tk.Button(frame, text = "Add Task", command = add_task_gui, bg
 add_task_button.pack(side = tk.LEFT)
 
 # Creating a listbox to display the tasks
-task_list = tk.Listbox(root, wdith = 50, height = 15, font = ("Helvetica", 14), bg = "#ffffff", selectbackground="#D1E7DD")
+task_list = tk.Listbox(root, width = 50, height = 15, font = ("Helvetica", 14), bg = "#ffffff", selectbackground="#D1E7DD")
 task_list.pack(pady=20)
 
 # Creating buttons for actions
