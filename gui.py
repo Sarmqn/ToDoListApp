@@ -21,13 +21,17 @@ is_dark_mode = False
 
 # Function that updates the displayed task list
 def update_task_list():
-    task_list.delete(0, tk.END)
-    sorted_tasks = get_sorted_tasks(tasks)
-    for task in sorted_tasks:
-        status = "✓" if task["Completed"] else "X"
-        priority_map = {'1': 'High', '2': 'Medium', '3': 'Low'}
-        priority_text = priority_map.get(task['priority'], 'N/A')
-        task_list.insert(tk.END, f"{task['task']} [{status}] - Priority: {priority_text}")
+    task_listbox.delete(0, tk.END)
+    if tasks:
+        sorted_tasks = sorted(tasks, key=lambda x: x['priority'])
+        for task in sorted_tasks:
+            status = "✓" if task['completed'] else "X"
+            priority_label = {1: "High", 2: "Medium", 3: "Low"}
+            task_display = f"{task['task']} [{status}] - Priority: {priority_label[task['priority']]}"
+            task_listbox.insert(tk.END, task_display)
+    else:
+        task_listbox.insert(tk.END, "No tasks available.")
+
         
 # Function that helps to switch between different background colour modes
 def toggle_mode():
