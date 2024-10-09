@@ -1,4 +1,23 @@
+import json
+
+# Function that makes tasks save in a text file
+def save_tasks(tasks):
+    with open('tasks.txt', 'w') as file:
+        json.dump(tasks, file)
+    print("Tasks have been saved to 'tasks.txt'.")
+
+# Function to load up tasks
+    
 # ToDoList Application
+def load_tasks():
+    try:
+        with open('tasks.txt', 'r') as file:
+            tasks = json.load(file)
+        print("Tasks loaded from 'tasks.txt'.")
+        return tasks
+    except FileNotFoundError:
+        print("No saved tasks have been found.")
+        return[]
 
 # Menu with options
 def show_menu():
