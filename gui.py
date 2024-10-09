@@ -21,16 +21,16 @@ is_dark_mode = False
 
 # Function that updates the displayed task list
 def update_task_list():
-    task_listbox.delete(0, tk.END)
+    task_list.delete(0, tk.END)  # Clearing task list
     if tasks:
         sorted_tasks = sorted(tasks, key=lambda x: x['priority'])
         for task in sorted_tasks:
             status = "✓" if task['completed'] else "X"
             priority_label = {1: "High", 2: "Medium", 3: "Low"}
             task_display = f"{task['task']} [{status}] - Priority: {priority_label[task['priority']]}"
-            task_listbox.insert(tk.END, task_display)
+            task_list.insert(tk.END, task_display)
     else:
-        task_listbox.insert(tk.END, "No tasks available.")
+        task_list.insert(tk.END, "No tasks available.")
 
         
 # Function that helps to switch between different background colour modes
@@ -63,7 +63,7 @@ def add_task_gui():
         if priority in ['1', '2', '3']:
             add_task(tasks, task, priority)
             update_task_list()
-            task_entry_list()
+            task_entry.delete(0, tk.END)  # Clear input field after adding
         else:
             messagebox.showerror("Invalid Input", "Please enter 1, 2, or 3 for priority.")
     else:
