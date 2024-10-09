@@ -34,7 +34,6 @@ def add_task(tasks, task, priority):
     tasks.append({"task": task, "completed": False, "priority": int(priority)})
     print(f"'{task}' has been added to your To-Do List with priority {priority}.")
 
-# Function that allows viewing of tasks
 # Function that allows viewing of tasks with integrated sorting
 def view_tasks(tasks):
     if not tasks:
