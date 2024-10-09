@@ -6,7 +6,7 @@ from tkinter import messagebox, simpledialog
 from ToDoList import save_tasks, load_tasks, add_task, mark_completed, delete_task
 
 # Initialise the application window
-root = tk.Tk
+root = tk.Tk()
 root.title("To-Do List App")
 # Application Window Size
 root.geometry("1024 x 768")
